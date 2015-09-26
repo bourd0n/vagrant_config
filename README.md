@@ -1,4 +1,4 @@
-# vagrant_config
+# Vagrant configuration for java development
 
 `sed -i -e 's/\r$//' wildfly-install.sh` - if problems with new line sybmols occurres
 
