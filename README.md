@@ -5,7 +5,7 @@
 Includes:
 
 1. ubuntu 14
-2. wildfly 9.0.2
+2. wildfly 8.2.1.Final
 3. postgres 9.4
 4. java 8
 
