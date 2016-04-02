@@ -22,10 +22,10 @@ Vagrant.configure(2) do |config|
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
-  config.vm.network "forwarded_port", guest: 5432, host: 5432
-  config.vm.network "forwarded_port", guest: 8080, host: 8080
-  config.vm.network "forwarded_port", guest: 9990, host: 9990
-  config.vm.network "forwarded_port", guest: 8787, host: 8787
+  #config.vm.network "forwarded_port", guest: 5432, host: 5432
+  #config.vm.network "forwarded_port", guest: 8080, host: 8080
+  #config.vm.network "forwarded_port", guest: 9990, host: 9990
+  #config.vm.network "forwarded_port", guest: 8787, host: 8787
 
 
   # Create a private network, which allows host-only access to the machine
@@ -41,7 +41,7 @@ Vagrant.configure(2) do |config|
   # the path on the host to the actual folder. The second argument is
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
-  # config.vm.synced_folder "../data", "/vagrant_data"
+  #config.vm.synced_folder "../data", "/vagrant_data"
 
   # Provider-specific configuration so you can fine-tune various
   # backing providers for Vagrant. These expose provider-specific options.
@@ -65,6 +65,15 @@ Vagrant.configure(2) do |config|
   #   push.app = "YOUR_ATLAS_USERNAME/YOUR_APPLICATION_NAME"
   # end
 
+  #config.push.define "ftp" do |push|
+  #   push.host = "127.0.0.1:2222"
+  #   push.secure = "true"
+  #   push.username = "vagrant"
+  #   push.password = "vagrant"
+  #   push.destination = "~/opt/wildfly-8.2.1.Final/standalone/deployments"
+  #   push.include = "README.md"
+  #end
+
   # Enable provisioning with a shell script. Additional provisioners such as
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
@@ -73,7 +82,8 @@ Vagrant.configure(2) do |config|
   # SHELL
 
   config.vm.provision :shell, path: "bootstrap.sh"
-  config.vm.provision :shell, path: "provision_postgresql.sh"
-  config.vm.provision :shell, path: "provision_java_8.sh"
-  config.vm.provision :shell, path: "provision_wildfly.sh"
+  config.vm.provision :shell, path: "provision_git.sh"
+  #config.vm.provision :shell, path: "provision_postgresql.sh"
+  #config.vm.provision :shell, path: "provision_java_8.sh"
+  #config.vm.provision :shell, path: "provision_wildfly.sh"
 end
